@@ -14,6 +14,7 @@ class UpdateGajeTable extends Migration
     public function up()
     {
         Schema::drop('mosque');
+        
             
         
     }

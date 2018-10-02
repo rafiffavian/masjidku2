@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/{a}/{b}', 'IndexController@index');
+Route::get('view', 'IndexController@manggilView');
+Route::get('nilai', 'IndexController@manggilNilai');
+Route::get('nilai2/{a}/{b}/{c}', 'IndexController@manggilNilai2');
+// Route::get('/' , 'IndexController@manggilIndex');
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('HomeController');
+Route::middleware(['auth','dkm'])->group(function(){
+	Route::get('/home', 'HomeController@index')->name('home');
+});
+Route::middleware(['auth'])->group(function(){
+	Route::get('/admin/profile','admin\MosqueProfileController@index')->name('admin.profile.masjid');
+});

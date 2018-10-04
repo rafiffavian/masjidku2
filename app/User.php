@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        // 'name', 'email', 'password',
     ];
 
     /**
@@ -31,5 +31,6 @@ class User extends Authenticatable
     public function masjid()
     {
         return $this->belongsTo(mosque::class,'mosque_id');
+        
     }
 }

@@ -19,9 +19,9 @@ Route::get('/', function () {
 Route::get('view', 'IndexController@manggilView');
 Route::get('nilai', 'IndexController@manggilNilai');
 Route::get('nilai2/{a}/{b}/{c}', 'IndexController@manggilNilai2');
-// Route::get('/' , 'IndexController@manggilIndex');
+Route::get('/' , 'IndexController@manggilIndex');
 
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -33,4 +33,5 @@ Route::middleware(['auth','dkm'])->group(function(){
 });
 Route::middleware(['auth'])->group(function(){
 	Route::get('/admin/profile','admin\MosqueProfileController@index')->name('admin.profile.masjid');
+	Route::post('/admin/profile/masjid/save', 'Admin\MosqueProfileController@save')->name('admin.profile.masjid.save');
 });

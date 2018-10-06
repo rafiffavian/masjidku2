@@ -30,6 +30,9 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('HomeController');
 Route::middleware(['auth','dkm'])->group(function(){
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/admin/jadwal/shalat-jumat','Admin\JadwalShalatJumatController@index')->name('admin.jadwal.shalat-jumat');
+	Route::get('/admin/jadwal/shalat-jumat/create','Admin\JadwalShalatJumatController@create')->name('admin.jadwal.shalat-jumat.create');
+	Route::post('/admin/jadwal/shalat-jumat/store','Admin\JadwalShalatJumatController@store')->name('admin.jadwal.shalat-jumat.store');
 });
 Route::middleware(['auth'])->group(function(){
 	Route::get('/admin/profile','admin\MosqueProfileController@index')->name('admin.profile.masjid');

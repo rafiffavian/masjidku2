@@ -17,7 +17,7 @@
 	    				<button class="btn btn-primary btn-xs">
 	    					<i class="fa fa-plus"></i>Tambah
 	    				</button>
-	    			</a>
+	    			</a
 	    			<table class="table table-striped table-bordered">
 	    				<thead>
 	    					<tr>
@@ -41,7 +41,7 @@
 	    						<td>{{$v->updated_at}}</td>
 	    						<td>
 		    						<div class="btn btn-group">
-		    							<a href="" class="btn btn-warning btn-xs">
+		    							<a href="{{ route('admin.jadwal.shalat-jumat.edit', $v->id) }}" class="btn btn-warning btn-xs">
 		    								<i class="fa fa-pencil"> Edit</i>
 		    							</a>
 		    							<a href="" class="btn btn-danger btn-xs">

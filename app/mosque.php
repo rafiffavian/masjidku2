@@ -14,4 +14,9 @@ class mosque extends Model
     {
     	return $this->hasMany(FridaySchedule::class, 'id_mosque');
     }
+
+    public function jadwalKajian()
+    {
+    	return $this->hasMany(mykajian::class, 'id_mosque');
+    }
 }

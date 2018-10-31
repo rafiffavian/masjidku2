@@ -34,4 +34,27 @@ class JadwalKajianController extends Controller
     		return redirect(route('admin.jadwal.kajian'));
     	
     }
+    public function edit(Request $request, $id)
+    {
+    	$jadwalkajian = Auth::user()->masjid->jadwalKajian()->findOrFail($id);
+
+    	return view('admin.jadwal-kajian-edit', [
+
+    		'jadwal' => $jadwalkajian
+    	]);
+    }
+    public function update(Request $request, $idk)
+    {
+        $request->validate([
+
+            'date' => 'required',
+            'pengisi_acara' => 'required',
+            'tema' => 'required',
+            'kategori' => 'required'
+        ]);
+
+        $jadwalkyu = Auth::user()->masjid->jadwalKajian()->findOrFail($idk);
+        $jadwalkyu->fill($request->except(['_token','_method']))->save();
+        return redirect(route('admin.jadwal.kajian'));
+    }
 }

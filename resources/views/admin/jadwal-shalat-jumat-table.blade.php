@@ -17,7 +17,7 @@
 	    				<button class="btn btn-primary btn-xs">
 	    					<i class="fa fa-plus"></i>Tambah
 	    				</button>
-	    			</a
+	    			</a>
 	    			<table class="table table-striped table-bordered">
 	    				<thead>
 	    					<tr>

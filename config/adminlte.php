@@ -134,6 +134,27 @@ return [
                 ],
             ]
         ],
+        [
+            'text' => 'Catatan Keuangan',
+            'url' => 'admin/akuntansi/catatan-keuangan',
+            'label_color' => 'success',
+            'icon' => 'file',
+        ],
+        [
+            'text' => 'Gambar Masjid',
+            'url' => 'admin/image',
+            'icon' => 'image',
+        ],
+        [
+            'text' => 'Member Masjid',
+            'url' => 'admin/member',
+            'icon' => 'user',
+        ],
+        [
+            'text' => 'Donation',
+            'url' => 'admin/donation',
+            'icon' => 'money',
+        ],
         'Profile',
         [
             'text' => 'Profile Masjid',

@@ -45,17 +45,29 @@ Route::middleware(['auth','dkm'])->group(function(){
 	Route::post('/admin/akuntansi/catatan-keuangan/store','Admin\CatatanKeuanganController@store')->name('admin.akuntansi.catatan-keuangan.store');
 	Route::get('/admin/akuntansi/catatan-keuangan/{id}/edit','Admin\CatatanKeuanganController@edit')->name('admin.akuntansi.catatan-keuangan.edit');
 	Route::put('/admin/akuntansi/catatan-keuangan/{id}/edit','Admin\CatatanKeuanganController@update')->name('admin.akuntansi.catatan-keuangan.update');
+
+	Route::get('/admin/akuntansi/catatan-keuangan/getJsonData', 'Admin\CatatanKeuanganController@getJsonData')->name('admin.akuntansi.getJsonData');
+
 	Route::get('/admin/image', 'Admin\ImageController@index')->name('admin.image');
 	Route::get('/admin/image/create', 'Admin\ImageController@create')->name('admin.image.create');
 	Route::post('/admin/image/store', 'Admin\ImageController@store')->name('admin.image.store');
+
+	Route::get('/admin/image/getJsonData', 'Admin\ImageController@getJsonData')->name('admin.image.getJsonData');
+
 	Route::get('/admin/member', 'Admin\MemberController@index')->name('admin.member');
 	Route::get('/admin/member/create', 'Admin\MemberController@create')->name('admin.member.create');
 	Route::post('/admin/member/store', 'Admin\MemberController@store')->name('admin.member.store');
+	Route::get('/admin/member/{id}/edit', 'Admin\MemberController@edit')->name('admin.member.edit');
+	Route::put('/admin/member/{id}/update', 'Admin\MemberController@update')->name('admin.member.update');
+
+	Route::get('/admin/member/getJsonData', 'Admin\MemberController@getJsonData')->name('admin.member.getJsonData');
+
 	Route::get('/admin/donation', 'Admin\DonationController@index')->name('admin.donation');
 	Route::get('/admin/donation/create', 'Admin\DonationController@create')->name('admin.donation.create');
 	Route::post('/admin/donation/store', 'Admin\DonationController@store')->name('admin.donation.store');
 	Route::get('/admin/donation/{id}/edit', 'Admin\DonationController@edit')->name('admin.donation.edit');
 	Route::put('/admin/donation/{id}/update', 'Admin\DonationController@update')->name('admin.donation.update');
+	Route::get('/admin/donation/getJsonData', 'Admin\DonationController@getJsonData')->name('admin.donation.getJsonData');
 });
 Route::middleware(['auth'])->group(function(){
 	Route::get('/admin/profile','admin\MosqueProfileController@index')->name('admin.profile.masjid');

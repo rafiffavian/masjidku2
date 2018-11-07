@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Finance;
+use Datatables;
 
 class CatatanKeuanganController extends Controller
 {
@@ -53,6 +54,10 @@ class CatatanKeuanganController extends Controller
         $crayonSinchan = Auth::user()->masjid->keuanganMasjid()->findOrFail($idl);
         $crayonSinchan->fill($request->except(['_token','_method']))->save();
         return redirect(route('admin.akuntansi.catatan-keuangan'));
+    }
+    public function getJsonData(Request $request)
+    {
+        return Datatables::of(Auth::user()->masjid->keuanganMasjid())->make(true);
     }
 }
 

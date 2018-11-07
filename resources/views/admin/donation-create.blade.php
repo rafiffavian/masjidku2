@@ -21,24 +21,28 @@
           				<label for="date">Minimal</label>
           				<input type="number" name="minimal" id="date" class="form-control" required="" value="{{old('minimal')}}">
           			</div>
-                <div class="form-group">
-                  <label for="id_finance_type">Tipe Donasi</label>
-                  <select name="id_master_donation" id="id_finance_type" style="margin-left: 10px">
-                    @foreach(App\MasterDonation::all() as $ea)
-                      <option value="{{$ea->id}}">{{$ea->nama}}</option>
-                    @endforeach
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="amount">Status</label> <!-- for di dalem lebel itu merujuk pada id -->
-                  <select name="status" id="" style="margin-left: 20px">
-                    <option value="aktif">Aktif</option>
-                    <option value="tidak aktif">Tidak Aktif</option>
-                  </select>
-                </div>
+                <div class="row">
+                  <div class="form-group col-md-10">
+                    <label for="id_finance_type">Tipe Donasi</label>
+                    <select name="id_master_donation" id="select" class="form-control">
+                      @foreach(App\MasterDonation::all() as $ea)
+                        <option value="{{$ea->id}}">{{$ea->nama}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                 </div>
+                 <div class="row">
+                  <div class="form-group col-md-10">
+                    <label for="amount">Status</label> <!-- for di dalem lebel itu merujuk pada id -->
+                    <select name="status" id="selectkuy" class="form-control">
+                      <option value="aktif">Aktif</option>
+                      <option value="tidak aktif">Tidak Aktif</option>
+                    </select>
+                  </div>
+                </div> 
                 <div class="form-group">
                   <label for="description">Keterangan</label>
-                  <br><textarea name="keterangan" id="" cols="30" rows="2" style="margin-left: 20px">{{old('keterangan')}}</textarea>
+                  <br><textarea name="keterangan" id="" cols="30" rows="2" class="form-control">{{old('keterangan')}}</textarea>
                 </div>
 
           			<div class="form-group text-right">
@@ -51,3 +55,15 @@
     </div>
 
 @endsection
+
+@section('js')
+    <script>
+    $(document).ready(function() {
+      $('#select').select2();
+  } );
+    $(document).ready(function() {
+      $('#selectkuy').select2();
+  } );
+  </script> 
+@stop
+  

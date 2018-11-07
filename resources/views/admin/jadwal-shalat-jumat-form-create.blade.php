@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					@include('admin.erorr-form')
-					<form method="POST" action="">
+					<form method="POST" action="{{ route('admin.jadwal.shalat-jumat.store') }}">
 							@csrf
 					
 							<div class="form-group">

@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use App\MosqueDonation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Datatables;
 
 class DonationController extends Controller
 {
     public function index()
     {
-    	$listDonasi = MosqueDonation::all();
-    	return view('admin.donation-table',compact('listDonasi'));
+    	// $listDonasi = MosqueDonation::all();
+    	// return view('admin.donation-table',compact('listDonasi'));
+        return view('admin.donation-table');
     }
     public function create()
     {
@@ -53,5 +55,9 @@ class DonationController extends Controller
     	$ourdonation->fill($request->except(['_token','_method']))->save();
     	return redirect(route('admin.donation'));
 
+    }
+    public function getJsonData(Request $request)
+    {
+        return Datatables::of(Auth::user()->masjid->Donasi())->make(true);
     }
 }

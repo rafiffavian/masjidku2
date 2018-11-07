@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\mykajian;
+use App\FridaySchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

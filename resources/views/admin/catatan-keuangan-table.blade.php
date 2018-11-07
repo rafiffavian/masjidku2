@@ -18,7 +18,7 @@
 	    				<i class="fa fa-plus"></i> Tambah
 	    			</button>
 	    		</a>
-	    		<table class="table table-striped table-bordered">
+	    		<table class="table table-striped table-bordered" id="datatable">
 	    				<thead>
 	    					<tr>
 	    						<th>Tanggal</th>
@@ -29,7 +29,7 @@
 	    					</tr>
 	    				</thead>
 	    				<tbody>
-	    					@foreach($listKeuangan as $uang)
+	    					{{-- @foreach($listKeuangan as $uang)
 	    					<tr>
 	    						<td>{{$uang->date}}</td>
 	    						<td>{{$uang->tipeCatatan->name}}</td>
@@ -46,10 +46,29 @@
 									</div>
 	    						</td>
 	    					</tr>
-	    					@endforeach
+	    					@endforeach --}}
 	    				</tbody>
 	    		</table>	
 	    	</div>
 	    </div>	
     </div>
+@stop
+@section('js')
+    <script>
+		$(document).ready(function() {
+	    $('#datatable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{!! route('admin.akuntansi.getJsonData') !!}',
+        method: "GET",
+        columns: [
+            { data: 'date', name: 'date' },
+            { data: 'id_finance_type', name: 'id_finance_type' },
+            { data: 'amount', name: 'amount' },
+            { data: 'description', name: 'description' },
+            { data: 'id', name: 'id' }
+        ]
+    });
+		} );
+    </script>
 @stop

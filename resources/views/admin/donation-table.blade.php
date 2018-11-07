@@ -15,13 +15,13 @@
 		<div class="box-body">
 				<div class="row">
 					<div class="col-md-12">
-						<a href="{{ route('admin.donation.create') }}">
+						{{-- <a href="{{ route('admin.donation.create') }}">
 							<button class="btn btn-primary btn-xs">
 								<i class="fa fa-plus"></i> Tambah
 							</button>
-						</a>
+						</a> --}}
 						
-						<table class="table table-striped table-bordered">
+						<table class="table table-striped table-bordered" id="datatable">
 							<thead>
 								<tr>
 									<th>Minimal Donasi</th>
@@ -32,7 +32,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($listDonasi as $v)	
+								{{-- @foreach($listDonasi as $v)	
 									<tr>
 										<td>{{$v->minimal}}</td>
 										<td>{{$v->tipeDonasi->nama}}</td>
@@ -49,7 +49,7 @@
 											</div>
 										</td>
 									</tr>
-								@endforeach	
+								@endforeach	 --}}
 							</tbody>
 						</table>
 						
@@ -58,3 +58,23 @@
 			</div>	
 	</div>		
 @endsection
+@section('js')
+	<script>
+		$(document).ready(function() {
+	    $('#datatable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{!! route('admin.donation.getJsonData') !!}',
+        method: "GET",
+        columns: [
+            { data: 'minimal', name: 'minimal' },
+            { data: 'id_master_donation', name: 'id_master_donation' },
+            { data: 'status', name: 'status' },
+            { data: 'keterangan', name: 'keterangan' },
+            { data: 'id', name: 'id' }
+            
+        ]
+    });
+		} );
+	</script>
+@stop
